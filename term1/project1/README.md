@@ -21,7 +21,7 @@ The goals / steps of this project are the following:
 A video is a stack of frames, and every frame is an images, so we can apply this process on every frame.
 My pipeline consisted of 5 steps using [opencv](http://opencv.org/documentation.html) : 
  - Convert incoming image to **gray scale** , handling one channel of color is better than working with 3 channels -R G B-
-[image1]: ./examples/grayscale.jpg "Grayscale"
+[Grayscale]: (/examples/grayscale.jpg "Grayscale")
  - **Blur** the gray image, this will reduce any noise in the picture that may lead to fake edges.
 [image2]: ./_README_IMAGES/blur.png "GaussianBlur"
  - Convert the Blur image to edges, using **canny edges** detector, now we have a lot of lines in the photo.
