@@ -57,18 +57,20 @@ My pipeline consisted of 5 steps using [opencv](http://opencv.org/documentation.
 
 ###2. Identify potential shortcomings with your current pipeline
 
-the first Shortcoming of this pipe line is when we have lighter Asphalt color or shining light leading to messy edges.
+ - the first Shortcoming of this pipe line is when we have lighter Asphalt color or shining light leading to messy edges.
 
-Another shortcoming is when I have high value for the horizon, that will force me to detect very small lines, they are not small but far and looks small, and detecting such small lines may lead to crazy lines crossing the picture ! trying to detect some white point in the middle of the image assuming it is a lane line !
+ - Another shortcoming is when I have high value for the horizon, that will force me to detect very small lines, they are not small but far and looks small, and detecting such small lines may lead to crazy lines crossing the picture ! trying to detect some white point in the middle of the image assuming it is a lane line !
+
 ![error] (https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/project1/_README_IMAGES/error.png )
 
-this could be a shortcoming also : car won't be able to recognize connected lane from dotted lane using the (dominant line technique), and therefore it can change lanes while traffic laws may won't allow changing lanes at interactions.
+
+ - this could be a shortcoming also : car won't be able to recognize connected lane from dotted lane using the (dominant line technique), and therefore it can change lanes while traffic laws may won't allow changing lanes at interactions.
 ![intersection](https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/project1/_README_IMAGES/intersection.png )
 
-and finally if we got a car ahead this pipeline will fail.
+ - and finally if we got a car ahead this pipeline will fail.
 
 ###3. Suggest possible improvements to your pipeline
 
-keep the horizon low ! , this will help process curved lanes, and eliminate small lines problem when we use a high threshold. 
+ - keep the horizon low ! , this will help process curved lanes, and eliminate small lines problem when we use a high threshold. 
 
-Smoothing algorithm to stop the line from jumping would make it looks better.
+ - Smoothing algorithm to stop the line from jumping would make it looks better.
