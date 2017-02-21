@@ -20,18 +20,29 @@ The goals / steps of this project are the following:
 ###1. Pipeline Description:
 A video is a stack of frames, and every frame is an images, so we can apply this process on every frame.
 My pipeline consisted of 5 steps using [opencv](http://opencv.org/documentation.html) : 
+
  - Convert incoming image to **gray scale** , handling one channel of color is better than working with 3 channels -R G B-
+ 
 ![Grayscale] (https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/project1/_README_IMAGES/gray.png)
+
  - **Blur** the gray image, this will reduce any noise in the picture that may lead to fake edges.
+ 
 ![GaussianBlur] (https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/project1/_README_IMAGES/blur.png)
+
  - Convert the Blur image to edges, using **canny edges** detector, now we have a lot of lines in the photo.
+ 
 ![Canny] (https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/project1/_README_IMAGES/edges.png)
+
  - Mask the image to keep only the **region of interest**, most probably lanes will form a triangle -*Trapezoid actually*- in the lower half of the image, so we need to focus only on that shape.
 
 ![region of interest](https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/project1/_README_IMAGES/masked.png)
+
  - Find dominant lines in image using **Hough Line Transform** , and draw them using draw_lines() function .
+ 
 ![dominant lines] (https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/project1/_README_IMAGES/lines.png)
+
  - Finally merge the dominant lines with the original- colored- image
+ 
 ![Final image] (https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/project1/_README_IMAGES/final.png )
 
 
