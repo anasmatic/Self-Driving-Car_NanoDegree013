@@ -1,0 +1,4 @@
+copy most functions from soultion
+
+removed dropouts, .001 rate
+reached .93 on epoch25
