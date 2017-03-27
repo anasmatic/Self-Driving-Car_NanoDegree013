@@ -19377,6 +19377,124 @@ xIQf4AAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="data-distribution">data distribution<a class="anchor-link" href="#data-distribution">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">count_per_label</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span><span class="c1">#</span>
+<span class="n">width</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mf">1.5</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXQAAAD8CAYAAABn919SAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+AAALEgAACxIB0t1+/AAAD0JJREFUeJzt3X+sZGV5wPHv00WxVii7LtANC+7SbImbJgXuhqxRCbGG
+X7VgW20wpm5akk0bTSBtU7AklT/8A2yqbaOp2QopNOhC/dHdUI1uKNQ2qdR7+SHguu5CUbdsd6NA
+oWmjXX36x7zbDnjvnZk7c87Mfc/3k0xm5uw5c559Z+4z7zzPnDmRmUiSVr+fmHYAkqTJMKFLUiVM
+6JJUCRO6JFXChC5JlTChS1IlTOiSVAkTuiRVwoQuSZU4qc2drV+/Pjdt2tTmLiVp1VtYWPhuZp4+
+aL1WE/qmTZuYn59vc5eStOpFxLeGWc+SiyRVwoQuSZUwoUtSJUzoklQJE7okVcKELkmVMKFLUiVM
+6JJUiWjznKIRMfUTmHoOVUmrTUQsZOa2Qes5Q5ekSpjQJakSrSb0ubk5MnOqF0mqlTN0SaqETVFJ
+mnE2RSWpY4ZO6BGxJiIejoh7y/3NEfFgRByMiLsj4pXNhSlJGmSUGfp1wP6++7cCH8nMLcBzwLWD
+HsCmqCQ1Z6iEHhEbgV8CPlHuB/AW4NNllTuAtzcRoCRpOMOegu5PgT8ATin3Xws8n5nHy/3DwFmD
+HmRhYYHee8Hq4+xe0qwbOEOPiLcBxzJzoX/xIqsumvEiYmdEzEeEJxOVpAYNM0N/I3BVRFwJvAo4
+ld6M/bSIOKnM0jcCzyy2cWbuAnbBbHxtUZJqNXCGnpnvz8yNmbkJuAb4+8x8N3A/8I6y2g5gz6DH
+moWmqM1USbUatoa+mBuA3RHxQeBh4LZBG6ymGrpJXNJq07kjRYdlQpc0KzxSVJI6pnO/tmjNXFKt
+nKFLUiWsoUvqvFn/VG4NXZI6xoQuSZUY53voI5ubm2N+3l8AkKQmVF1Dn/W6mCQNwxq6JHWMCV2S
+KlH1gUWS1CXO0CWpElU3RZvmpwBJbbApKkkdY0KXpEpU3RS16SqpS5yhS1IlbIpKi/ATmGaJTVFJ
+6hgTuiRVwl9blKRKWEOfMGuvkibNGrokdYwJXZIqYQ1dkirhDF2SKmFTtCNs1kqrl01RSeoYE7ok
+VcKmqCRVwhm6JFWic01Rm4OSVhubopLUMSZ0SapE505BJ0m16lwNXaPxTVCaPmvoktQxJnRJqsTA
+A4si4lXAl4GTy/qfzswPRMRmYDewDngI+I3M/MFyj+WBRZLUnGFm6N8H3pKZvwCcD1weEduBW4GP
+ZOYW4Dng2ubClCQNMlJTNCJeDfwT8DvA3wE/k5nHI+INwM2ZedmA7TvZYbOxKGkcE22KRsSaiHgE
+OAbsA54Ens/M42WVw8BZS2y7MyLmI8JaiyQ1aKiEnpk/zMzzgY3ARcDrF1ttiW13Zea2Yd5dJEkr
+N9KvLWbm8xHxALAdOC0iTiqz9I3AM4O2tykqSc0ZOEOPiNMj4rRy+yeBtwL7gfuBd5TVdgB7Bj3W
+wsICETFzF0mqwTAz9A3AHRGxht4bwD2ZeW9EfB3YHREfBB4GbmswTknSAB76j99CkTTbPPRfkjqm
+c7+26C8wSqqVJZcZ5puNJLDkIkmdY0KXpEqMdGDRuDywSJKa4wxdkirRuaaojUZJq41NUUnqGBO6
+JFWicwcWSVKtOldDr41vUlL9rKFLUseY0CWpEh5YJEmVcIYuSZWwKSqtcjbG62dTVJI6xoQuSZWw
+KSpJlXCGLkmVsCmKTSVJs82mqCR1jAldkirRuV9b9BcYJdXKGvqM8I1F0lKsoUtSx5jQJakSHlgk
+SZVwhi5JlbApOgYbmZLaYFNUkjrGhC5JlfDAIg9IklQJZ+iSVAmboktwBi5pVtgUlaSOGZjQI+Ls
+iLg/IvZHxBMRcV1Zvi4i9kXEwXK9tvlwJUlLGWaGfhz4vcx8PbAdeG9EbAVuBO7LzC3AfeX+slZT
+U1SSVpuRa+gRsQf4aLlckplHImID8EBmnjdg21WbKU3ykqalkRp6RGwCLgAeBM7MzCMA5fqM0cOU
+JE3K0D/OFRGvAT4DXJ+ZL0TEsNvtBHauLDxJ0rCGmqFHxCvoJfO7MvOzZfHRUmqhXB9bbNvM3JWZ
+2zJz22qqoVtTl7TaDPMtlwBuA/Zn5of7/mkvsKPc3gHsmXx4kqRhDWyKRsSbgH8EHgN+VBb/Ib06
++j3AOcC3gXdm5rMDHqvVqa4za0k1GLYpWvWRoiZ0STXwSFFJ6piqf21Rkrqk6pKLtFJOCDRLLLlI
+UseY0CWpEiZ0SarE0If+T8Lc3Bzz8/Nt7lKSOsOmqKpmc1M1sCkqSR1jQpekSlhDl6RKOEOXpErY
+FJ0wm3CSJs2mqCR1jAldkiphU1SSKmENfZWzZi/Vzxq6JHWMCV2SKmENXZIq4QxdkiphU1TLsukq
+TZ9NUUnqGBO6JFXCpqgkVcIZuiRVwqaoJA1hml8QsCkqSR1jQpekStgUlaRKWEOXpEXM0kF11tAl
+qWNM6JJUCWvoklQJZ+iSVAmbotIEzVIjTfWwKSpJHTMwoUfE7RFxLCIe71u2LiL2RcTBcr222TAl
+SYMMLLlExMXAfwJ3ZubPl2UfAp7NzFsi4kZgbWbeMGhn27ZtS5uikjSaYUsuQ9XQI2ITcG9fQj8A
+XJKZRyJiA/BAZp43xONYYJTUmlp6Gk3X0M/MzCMA5fqMFT6OJGlCGv8eekTsBHY2vR9J6rqVztCP
+llIL5frYUitm5q7M3DbMxwVJ0sqtdIa+F9gB3FKu9wyzkUeKSlJzhvmWy6eAS4D1wFHgA8DfAvcA
+5wDfBt6Zmc8O3JlNUWkstTT5NJqJfstlUkzo0nhM6N3kkaKS1DH+2qIkVcIZuiRVwhq6NCOsj2sp
+1tAlqWNM6JJUCZuiklQJa+jSjLKmrhOsoUtSx5jQJakS1tAlqRLO0CWpEjZFJ8xGlqRJsykqSR1j
+QpekStgUlaRKOEOXpErYFJU0VX6RYDCbopLUMSZ0SaqETVFJqoQ1dEnVqLUebw1dkjrGhC5JlbCG
+LkmVcIYuSZWwKSrNiFobehqfTVFJ6hgTuiRVwqaoJFXCGbokVcKmqCQ1bNw8a1NUkjrGhC5JlbAp
+KkmVsIYuSRPURE61hi5JHWNCl6RKjFVDj4jLgT8D1gCfyMxbllvfGrokNWfFM/SIWAN8DLgC2Aq8
+KyK2TiowSdJoxpmhXwQcysynACJiN3A18PWlNlhYWCAixtjlaPz1OkldMk4N/SzgO333D5dlLxER
+OyNiPiKstUhSg8aZoS821f6xKXFm7gJ2gV9blKQmjTNDPwyc3Xd/I/DMchvMzc2Rma1dJKlLxkno
+XwW2RMTmiHglcA2wdzJhSZJGteKSS2Yej4j3AV+k97XF2zPziYlFJkkayVjfQ8/MzwOfn1AskqQx
+eKSoJFXChC5JlTChS1IlTOiSVAkTuiRVwoQuSZVo+4xFLwIHWtvhaNYD3512EMswvpWb5djA+MYx
+y7HB5OJ7XWaePmilVs8pChwY5jRK0xAR87MaGxjfOGY5NjC+ccxybNB+fJZcJKkSJnRJqkTbCX1X
+y/sbxSzHBsY3jlmODYxvHLMcG7QcX6tNUUlScyy5SFIlWknoEXF5RByIiEMRcWMb+1wkhrMj4v6I
+2B8RT0TEdWX5zRHxbxHxSLlc2bfN+0vMByLishZifDoiHitxzJdl6yJiX0QcLNdry/KIiD8v8X0t
+Ii5sMK7z+sbnkYh4ISKun+bYRcTtEXEsIh7vWzbyWEXEjrL+wYjY0XB8fxwR3ygxfC4iTivLN0XE
+f/eN48f7tpkrr4lD5f8w9kl5l4ht5Oeyqb/rJeK7uy+2pyPikbK87bFbKo/MxmuvhbMGrQGeBM4F
+Xgk8Cmxt88xFJY4NwIXl9inAN4GtwM3A7y+y/tYS68nA5vJ/WNNwjE8D61+27EPAjeX2jcCt5faV
+wBfonQpwO/BgS+O4Bvh34HXTHDvgYuBC4PGVjhWwDniqXK8tt9c2GN+lwEnl9q198W3qX+9lj/Mv
+wBtK7F8ArmgotpGeyyb/rheL72X//ifAH01p7JbKIzPx2mtjhn4RcCgzn8rMHwC7gatb2O9LZOaR
+zHyo3H4R2M8iJ7XuczWwOzO/n5n/Chyi939p29XAHeX2HcDb+5bfmT1fAU6LiA0txPOLwJOZ+a1l
+1ml87DLzy8Czi+x3lLG6DNiXmc9m5nPAPuDypuLLzC9l5vFy9yv0Ttu4pBLjqZn5z9nLAnf2/Z8m
+GtsylnouG/u7Xi6+Msv+deBTyz1Gg2O3VB6ZiddeGwn9LOA7ffcPs3wibVxEbAIuAB4si95XPg7d
+fuKjEtOJO4EvRcRCROwsy87MzCPQezEBZ0wxPuidarD/j2lWxg5GH6tpvjZ/i97M7YTNEfFwRPxD
+RLy5LDurxNRWfKM8l9MauzcDRzPzYN+yqYzdy/LITLz22kjoi9WtpvbVmoh4DfAZ4PrMfAH4C+Bn
+gfOBI/Q+zsF04n5jZl4IXAG8NyIuXmbd1uOL3rljrwL+piyapbFbzlLxTCXOiLgJOA7cVRYdAc7J
+zAuA3wU+GRGnthzfqM/ltJ7jd/HSCcVUxm6RPLLkqkvE0Uh8bST0w8DZffc3As+0sN8fExGvoPck
+3JWZnwXIzKOZ+cPM/BHwl/x/aaD1uDPzmXJ9DPhcieXoiVJKuT42rfjovdE8lJlHS5wzM3bFqGPV
+epyl+fU24N2lFEApZ3yv3F6gV5v+uRJff1mmsfhW8FxOY+xOAn4VuLsv7tbHbrE8woy89tpI6F8F
+tkTE5jLDuwbY28J+X6LU3m4D9mfmh/uW99edfwU40VnfC1wTESdHxGZgC70mS1Px/VREnHLiNr0G
+2uMljhMd8B3Anr743lO66NuB/zjxka9BL5kdzcrY9Rl1rL4IXBoRa0uJ4dKyrBERcTlwA3BVZv5X
+3/LTI2JNuX0uvfF6qsT4YkRsL6/f9/T9nyYd26jP5TT+rt8KfCMz/6+U0vbYLZVHmJXX3rhd1WEu
+9Dq936T37nlTG/tcJIY30ftI8zXgkXK5Evhr4LGyfC+woW+bm0rMB5hAh3xAfOfS+6bAo8ATJ8YJ
+eC1wH3CwXK8rywP4WInvMWBbw/G9Gvge8NN9y6Y2dvTeWI4A/0NvtnPtSsaKXi37ULn8ZsPxHaJX
+Nz3x+vt4WffXynP+KPAQ8Mt9j7ONXnJ9Evgo5WDABmIb+bls6u96sfjK8r8Cfvtl67Y9dkvlkZl4
+7XmkqCRVwiNFJakSJnRJqoQJXZIqYUKXpEqY0CWpEiZ0SaqECV2SKmFCl6RK/C/aAd+eUXV/NAAA
+AABJRU5ErkJggg==
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <hr>
 <h2 id="Step-2:-Design-and-Test-a-Model-Architecture">Step 2: Design and Test a Model Architecture<a class="anchor-link" href="#Step-2:-Design-and-Test-a-Model-Architecture">&#182;</a></h2><p>Design and implement a deep learning model that learns to recognize traffic signs. Train and test your model on the <a href="http://benchmark.ini.rub.de/?section=gtsrb&amp;subsection=dataset">German Traffic Sign Dataset</a>.</p>
 <p>The LeNet-5 implementation shown in the <a href="https://classroom.udacity.com/nanodegrees/nd013/parts/fbf77062-5703-404e-b60c-95b78b2f3f9e/modules/6df7ae49-c61c-4bb2-a23e-6527e69209ec/lessons/601ae704-1035-4287-8b11-e2c2716217ad/concepts/d4aca031-508f-4e0b-b493-e7b706120f81">classroom</a> at the end of the CNN lesson is a solid starting point. You'll have to change the number of classes and possibly the preprocessing, but aside from that it's plug and play!</p>
