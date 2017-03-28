@@ -1,9 +1,5 @@
-#**Traffic Sign Recognition** 
-##.
-###.
-
+# Traffic Sign Recognition
 ---
-
 **Build a Traffic Sign Recognition Project**
 
 The goals / steps of this project are the following:
@@ -14,31 +10,19 @@ The goals / steps of this project are the following:
 * Analyze the softmax probabilities of the new images
 * Summarize the results with a written report
 
-
-[//]: # (Image References)
-
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
-
 ## Rubric Points
-###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
+### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
 
 ---
-###Writeup / README
+### Writeup / README
 
-####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
+#### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
 
 You're reading it! and here is a link to my [project code](https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/CarND-Project2_Traffic-Sign-Classifier/Traffic_Sign_Classifier_try5.html)
 
-###Data Set Summary & Exploration
+### Data Set Summary & Exploration
 
-####1. Provide a basic summary of the data set and identify where in your code the summary was done. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
+#### 1. Provide a basic summary of the data set and identify where in your code the summary was done. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
 
 The code for this step is contained in the second code cell of the IPython notebook.  
 
@@ -51,21 +35,21 @@ signs data set:
 * The shape of a traffic sign image is (32, 32, 3)
 * The number of unique classes/labels in the data set is 43
 
-####2. Include an exploratory visualization of the dataset and identify where the code is in your code file.
+#### 2. Include an exploratory visualization of the dataset and identify where the code is in your code file.
 
 The code for this step is contained in the 3rd, 4th,& 5th code cells of the IPython notebook, with help of pandas, numpy.
 
 these are the 43 sign in our data set
 
-![el data set] (https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/CarND-Project2_Traffic-Sign-Classifier/examples/all_signs.jpg)
+![el data set](https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/CarND-Project2_Traffic-Sign-Classifier/examples/all_signs.jpg)
 
 Here is an exploratory visualization of the data set. It is a bar chart showing bad distribution of data, which may effect the quality of any algorithm
 
-![bar chart] (https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/CarND-Project2_Traffic-Sign-Classifier/examples/distribution.jpg)
+![bar chart](https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/CarND-Project2_Traffic-Sign-Classifier/examples/distribution.jpg)
 
-###Design and Test a Model Architecture
+### Design and Test a Model Architecture
 
-####1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.
+#### 1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.
 
 The code for this step is contained in the 6th, 7th, & 8th code cell of the IPython notebook.
 
@@ -78,14 +62,15 @@ training 3 channels of data is not required and increase the training time.
  - then contrast the image, "Histogram Equalization" stretch out the intensity range, which improves the details of an image.
  - 
 Here is an example of applying this proccess to traffic sign image.
-![effects] (https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/CarND-Project2_Traffic-Sign-Classifier/examples/distribution.jpg)
+![effects](https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/CarND-Project2_Traffic-Sign-Classifier/examples/distribution.jpg)
 
 As a last step, I normalized the image data because ... they everybody says it is important !
 I come from a game development background, in games we normalize movement vectors, because we apply changes to it all the time, normalization grantees changes will effect the same way allover game objects.
 I guess this will be the same for weights and images.
 
 
-####2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
+#### 2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
+
 #### function preprocess_train_set :
 
  - this function will do the same as the one above to all training data.
@@ -123,7 +108,7 @@ I'm using [LeNet](http://yann.lecun.com/exdb/lenet/)  with the following layers:
 | output| 43|
 
 
-####4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
+#### 4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 cells 13, 14 ,15
 
 learning rate = 0.0005
@@ -133,7 +118,7 @@ BATCH_SIZE = 128
 
 using AdamOptimizer had good effect on accuracy, as it changes learning rate though epochs.
 
-####5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
+#### 5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 
 
@@ -184,13 +169,13 @@ If a well known architecture was chosen:
 
 Here are five German traffic signs that I found on the web:
 
-![priority road][https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/CarND-Project2_Traffic-Sign-Classifier/testphotos/Arterial.jpg] ![children crossing][https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/CarND-Project2_Traffic-Sign-Classifier/testphotos/be-aware-of-children.jpg] ![dangerous curve to the left][https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/CarND-Project2_Traffic-Sign-Classifier/testphotos/left_curve.jpg] 
-![dangerous curve to the right][https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/CarND-Project2_Traffic-Sign-Classifier/testphotos/right_curve.jpg] ![children crossing][https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/CarND-Project2_Traffic-Sign-Classifier/testphotos/traffic-signs-children-crossing.jpg] ![yield][https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/CarND-Project2_Traffic-Sign-Classifier/testphotos/yeld.jpg]
+![priority road](https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/CarND-Project2_Traffic-Sign-Classifier/testphotos/Arterial.jpg) ![children crossing](https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/CarND-Project2_Traffic-Sign-Classifier/testphotos/be-aware-of-children.jpg) ![dangerous curve to the left](https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/CarND-Project2_Traffic-Sign-Classifier/testphotos/left_curve.jpg)
+![dangerous curve to the right](https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/CarND-Project2_Traffic-Sign-Classifier/testphotos/right_curve.jpg) ![children crossing](https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/CarND-Project2_Traffic-Sign-Classifier/testphotos/traffic-signs-children-crossing.jpg) ![yield](https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/CarND-Project2_Traffic-Sign-Classifier/testphotos/yeld.jpg)
 
 all photos were chosen with letter rotation or skew
 the yellow "children crossing" photo is cropped from edge and has stickers on it.
 
-####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+#### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
 
 Here are the results of the prediction:
@@ -209,7 +194,7 @@ The model was able to correctly guess 5 of the 6 traffic signs, which gives an a
 
 I think if we have more samples of "pedestrian" (has only 630 sample) , the network would have done better.
 
-####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+#### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
 soft max probabilities were
 
