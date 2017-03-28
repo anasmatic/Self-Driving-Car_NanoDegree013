@@ -62,7 +62,7 @@ training 3 channels of data is not required and increase the training time.
  - then contrast the image, "Histogram Equalization" stretch out the intensity range, which improves the details of an image.
  - 
 Here is an example of applying this proccess to traffic sign image.
-![effects](https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/CarND-Project2_Traffic-Sign-Classifier/examples/distribution.jpg)
+![effects](https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/CarND-Project2_Traffic-Sign-Classifier/examples/before-after.jpg)
 
 As a last step, I normalized the image data because ... they everybody says it is important !
 I come from a game development background, in games we normalize movement vectors, because we apply changes to it all the time, normalization grantees changes will effect the same way allover game objects.
