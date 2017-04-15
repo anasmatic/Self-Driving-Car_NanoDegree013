@@ -1,0 +1,43 @@
+1-a 
+model		: flatten + dense
+loss 		: mse
+optimizer 	: adam
+train 		: 10epochs
+resuls 		: val_loss decreases first 4epochs, then increases.
+			best loss result ~1300
+sim		:car drives in ccw circles
+___________________________________________________________________
+
+1-b
+model		: normalizaion(lambda) + flatten + dense
+loss 		: mse
+optimizer 	: adam
+train 		: 10epochs
+resuls 		: val_loss decreases much better
+			but jumps back and forth after 4 epoches
+			best loss result ~0.23
+sim		: car drives in cw circles			
+___________________________________________________________________
+
+1-c
+model		: normalizaion(lambda) + flatten + dense
+loss 		: mse
+optimizer 	: adam
+train 		: 10epochs
+resuls 		: loss & val_loss higher than before
+			then increases after 4 epoches
+			best loss result:~5.5 val_loss:~2.6
+sim		: car drives better but out of the road after 5 seconds
+
+___________________________________________________________________
+
+2-a
+model		: normalizaion(lambda) + default lenet
+loss 		: mse
+optimizer 	: adam
+train 		: 10epochs
+resuls 		: loss & val_loss better
+			val_loss increases each epoch
+			best loss result:~0.13(epoch10) val_loss:~0.215(epoch2)
+sim		: car drives better but out of the road after 5 seconds
+

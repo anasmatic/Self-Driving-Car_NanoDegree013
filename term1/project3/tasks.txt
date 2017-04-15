@@ -1,0 +1,26 @@
+data collection :
+- collect data from track 1 /done
+- collect data from track 2 /done
+- 3 laps center lane ( 2from T1 ccw , 1from T1 cw ) /done
+- 1 lap recovery from sides to center (ccw ,cw) /done
+- 1 lap of curves (ccw ,cw) /done
+- 1 lap of track 2 
+- track 2 recoveries
+
+augmentations :
+- flip images
+- crop top images
+
+model :
+- underfitting ? (poor predictions, high mse on training & validation)
+-- more epochs
+-- more convolution layers
+- overfitting ? (poor perd/ high mse on validaion only)
+-- dropout or pooling
+-- less convolution layers
+-- more data or augmentaion
+
+cmd:
+python drive.py model.h5
+jupyter --no-browser
+spyder --show-console
