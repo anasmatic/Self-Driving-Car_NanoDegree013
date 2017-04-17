@@ -1,0 +1,67 @@
+1-a 
+model		: flatten + dense
+loss 		: mse
+optimizer 	: adam
+train 		: 10epochs
+resuls 		: val_loss decreases first 4epochs, then increases.
+			best loss result ~1300
+sim		:car drives in ccw circles
+___________________________________________________________________
+
+1-b
+model		: normalizaion(lambda) + flatten + dense
+loss 		: mse
+optimizer 	: adam
+train 		: 10epochs
+resuls 		: val_loss decreases much better
+			but jumps back and forth after 4 epoches
+			best loss result ~0.23
+sim		: car drives in cw circles			
+___________________________________________________________________
+
+1-c
+model		: normalizaion(lambda) + flatten + dense
+loss 		: mse
+optimizer 	: adam
+train 		: 10epochs
+resuls 		: loss & val_loss higher than before
+			then increases after 4 epoches
+			best loss result:~5.5 val_loss:~2.6
+sim		: car drives better but out of the road after 5 seconds
+
+___________________________________________________________________
+
+2-a
+model		: normalizaion(lambda) + default lenet
+loss 		: mse
+optimizer 	: adam
+train 		: 10epochs
+resuls 		: loss & val_loss better
+			val_loss increases each epoch
+			best loss result:~0.13(epoch10) val_loss:~0.215(epoch2)
+sim		: car drives better but out of the road after 5 seconds
+
+___________________________________________________________________
+
+2-b (test2-leNet)
+model		: generators + normalizaion(lambda) + default lenet + crop + 3 cameras
+loss 		: mse
+optimizer 	: adam
+train 		: 10epochs
+resuls 		: loss & val_loss is sooooo small
+			8 epoches is fine
+			best loss result:~7.8141e-20 val_loss:~3.0735e-20
+sim		: car drives out of the road in straigt line !
+possible fixs 	: CV2 BRG to RGB, add/subtract .2 or .25 from side cameras
+problem was in generator code
+___________________________________________________________________
+
+3-a ()
+model		: generators + normalizaion(lambda) + nvidia with maxpoling relu and dropout + crop + 3 cameras
+loss 		: mse
+optimizer 	: adam
+train 		: 5epochs
+resuls 		: loss & val_loss is good but loss is higher than val_loss 
+			best loss result:~0.15
+sim		: car drives out of the road in straigt line !
+problems 	: saving model has a problem
