@@ -1,4 +1,4 @@
-#**Behavioral Cloning** 
+# **Behavioral Cloning** 
 
 #### Writeup
  ---
@@ -24,12 +24,12 @@ The goals / steps of this project are the following:
 [image7]: ./examples/placeholder_small.png "Flipped Image"
 
 ## Rubric Points
-#####Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
+##### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
 
 ---
-###Files Submitted & Code Quality
+### Files Submitted & Code Quality
 
-####1. Submission includes all required files and can be used to run the simulator in autonomous mode
+#### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
 
 My project includes the following files:
 * model.py containing the script to create and train the model
@@ -47,13 +47,13 @@ python drive.py model.h5
 model is trained using my data (model.h5) , and Udacity data (model_udacitydata.h5)
 udacity data is better with taking curves, but my data is better with recoveries
 
-####3. Submission code is usable and readable
+#### 3. Submission code is usable and readable
 
 The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
 
-###Model Architecture and Training Strategy
+### Model Architecture and Training Strategy
 
-####1. An appropriate model architecture has been employed
+#### 1. An appropriate model architecture has been employed
 (model.py lines 85 to 127)
 I'm using the Nvidia CNN (end to end)
 
@@ -70,7 +70,7 @@ after that comes 2 Fully connected layers, with weights 500 then 100
 both layers has `elu activation`
 and `he_normal initializer` 
 
-####2. Attempts to reduce overfitting in the model
+#### 2. Attempts to reduce overfitting in the model
 
 I used 2x2`MaxPooling2D` after every `Conv2D` layer ,
 also `Dropout` layers after `Dense` layers ,
@@ -78,19 +78,19 @@ in order to reduce overfitting
 
 The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 10-16). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
-####3. Model parameter tuning
+#### 3. Model parameter tuning
 I tried to use different learning rates [ from 0.1 to  0.00001] , but the results was not as good as useing `Adam` optimizer, 
 so the learning rate was not tuned manually.
 
-####4. Appropriate training data
+#### 4. Appropriate training data
 
 Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road ... 
 
 For details about how I created the training data, see the next section. 
 
-###Model Architecture and Training Strategy
+### Model Architecture and Training Strategy
 
-####1. Solution Design Approach
+#### 1. Solution Design Approach
 
 The overall strategy for deriving a model architecture was to ...
 
@@ -112,7 +112,7 @@ adding various activations , initializers, and overfitting layers, I was able to
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
-####2. Final Model Architecture
+#### 2. Final Model Architecture
 
 Here is a visualization of the architecture 
 
@@ -144,7 +144,7 @@ Trainable params: 311,989
 Non-trainable params: 0
 _________________________________________________________________
 
-####3. Creation of the Training Set & Training Process
+#### 3. Creation of the Training Set & Training Process
 
 To capture good driving behavior, I recorded 1.5 laps on track CCW, then 1.5 CW. driving smoothly through curves
  Here is an example image of center lane driving:
@@ -172,7 +172,7 @@ best patch size was 32, for speed and training results.
 
 _________________________________________________________________
 
-####4. Result Video
+#### 4. Result Video
 here you can see the car driving CCW smothly through curves, even tight ones
 
 ![vid1](https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/project3/examples/vid1.gif)
