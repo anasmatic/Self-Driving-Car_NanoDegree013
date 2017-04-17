@@ -146,29 +146,38 @@ _________________________________________________________________
 
 ####3. Creation of the Training Set & Training Process
 
-To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
+To capture good driving behavior, I recorded 1.5 laps on track CCW, then 1.5 CW. driving smoothly through curves
+ Here is an example image of center lane driving:
 
-![alt text][image2]
+![center](https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/project3/examples/center.gif)
 
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
+then recorded the vehicle recovering from the left side and right sides of the road back to center ,CCW and CW, so that the vehicle would learn to recover back to center if it was drifted to any side :
 
-![alt text][image3]
-![alt text][image4]
-![alt text][image5]
+![recovery1](https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/project3/examples/recovery1.gif)
 
-Then I repeated this process on track two in order to get more data points.
-
-To augment the data sat, I also flipped images and angles thinking that this would ... For example, here is an image that has then been flipped:
-
-![alt text][image6]
-![alt text][image7]
-
-Etc ....
-
-After the collection process, I had X number of data points. I then preprocessed this data by ...
+![recovery2](https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/project3/examples/recovery2.gif)
 
 
-I finally randomly shuffled the data set and put Y% of the data into a validation set. 
+then I flipped images and angles in order to create more data
 
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
+After the collection process, I had 6786 number of data points.
 
+I finally randomly shuffled the data set and put 30% of the data into a validation set. 
+
+then training data for 5 epochs, save the model, but validation loss was less than training loss
+then train for another 3 epochs, after that the validation loss was higher than training loss.
+The ideal number of epochs was 8 .
+I used an adam optimizer so that manually training the learning rate wasn't necessary.
+best patch size was 32, for speed and training results.
+
+_________________________________________________________________
+
+####4. Result Video
+here you can see the car driving CCW smothly through curves, even tight ones
+
+![vid1](https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/project3/examples/vid1.gif)
+
+and then I rotated the car to drive CW, I made it stop on the dirt road but facing the asphalt,
+as you can see the car was abel to  get off the dirt and position is self on the track.
+
+![vid2](https://github.com/anasmatic/Self-Driving-Car_NanoDegree013/blob/master/term1/project3/examples/vid2.gif)
