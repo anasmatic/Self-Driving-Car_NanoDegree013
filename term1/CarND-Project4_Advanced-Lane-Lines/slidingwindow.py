@@ -63,7 +63,6 @@ def sliding_window_search(warped, window_width=50,window_height=80,margin = 100,
     @param margin : How much to slide left and right for searching
     """
     window_centroids = find_window_centroids(warped, window_width, window_height, margin)
-    print("warped shape",warped.shape)
     # If we found any window centers
     if len(window_centroids) > 0:
     
@@ -96,7 +95,6 @@ def sliding_window_search(warped, window_width=50,window_height=80,margin = 100,
         plt.imshow(output, cmap='gray')
         plt.title('window fitting results')
         plt.show()
-    print("oppa")
     return output
 
 #test

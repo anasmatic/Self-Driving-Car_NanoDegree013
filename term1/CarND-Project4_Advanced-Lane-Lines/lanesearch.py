@@ -7,7 +7,7 @@ Created on Tue Apr 25 19:45:49 2017
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
+
 
 
 def slidingwindowsearch(binary_warped,do_plot=True):
@@ -96,11 +96,12 @@ def slidingwindowsearch(binary_warped,do_plot=True):
         plt.ylim(720, 0)
         plt.show()
     
-    print("left_fitx:",left_fitx, ", right_fitx:",right_fitx,", ploty:", ploty)
+    #print("left_fitx:",left_fitx, ", right_fitx:",right_fitx,", ploty:", ploty)
     return left_fitx, right_fitx, ploty
 
 #test
 """
+import matplotlib.image as mpimg
 warped = mpimg.imread('forumquestion\warped-example.jpg')
 print(warped.shape)
 print (warped.dtype)
