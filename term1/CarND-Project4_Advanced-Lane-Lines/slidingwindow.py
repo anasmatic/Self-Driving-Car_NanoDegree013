@@ -89,18 +89,18 @@ def sliding_window_search(warped, window_width=50,window_height=80,margin = 100,
      
     # If no window centers found, just display orginal road image
     else:
-        output = np.array(cv2.merge((warped,warped,warped)),np.uint8)
+        output = warped#np.array(cv2.merge((warped,warped,warped)),np.uint8)
     
     if do_plot:
         # Display the final results
-        plt.imshow(output)
+        plt.imshow(output, cmap='gray')
         plt.title('window fitting results')
         plt.show()
-    
+    print("oppa")
     return output
 
 #test
 #warped = mpimg.imread('forumquestion\warped-example.jpg')
-warped = mpimg.imread('forumquestion\straight_lines1.jpg')
-warped = cv2.cvtColor(warped,cv2.COLOR_RGB2GRAY)
-sliding_window_search(warped,do_plot=True)
+#warped = mpimg.imread('forumquestion\straight_lines1.jpg')
+#warped = cv2.cvtColor(warped,cv2.COLOR_RGB2GRAY)
+#sliding_window_search(warped,do_plot=True)

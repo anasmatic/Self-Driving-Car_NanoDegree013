@@ -1,2 +1,2 @@
-model_checkpoint_path: "lenet_try5"
-all_model_checkpoint_paths: "lenet_try5"
+model_checkpoint_path: "lenet_try5_on_cifar10"
+all_model_checkpoint_paths: "lenet_try5_on_cifar10"
