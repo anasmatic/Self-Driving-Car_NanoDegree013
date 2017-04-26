@@ -2,7 +2,7 @@
 """
 Created on Tue Apr 25 16:36:20 2017
 
-@author: Omnia
+@author: Anas
 """
 
 import numpy as np
