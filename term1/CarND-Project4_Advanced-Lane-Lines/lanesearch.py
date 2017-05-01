@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 
 
-def slidingwindowsearch(binary_warped,do_plot=True):
+def slidingwindowsearch(binary_warped,do_plot=False):
     # Assuming you have created a warped binary image called "binary_warped"
     # Take a histogram of the bottom half of the image
     histogram = np.sum(binary_warped[binary_warped.shape[0]/2:,:], axis=0)
@@ -84,7 +84,7 @@ def slidingwindowsearch(binary_warped,do_plot=True):
     ploty = np.linspace(0, binary_warped.shape[0]-1, binary_warped.shape[0] )
     left_fitx = left_fit[0]*ploty**2 + left_fit[1]*ploty + left_fit[2]
     right_fitx = right_fit[0]*ploty**2 + right_fit[1]*ploty + right_fit[2]
-    
+    #display
     if(do_plot):
         
         out_img[nonzeroy[left_lane_inds], nonzerox[left_lane_inds]] = [255, 0, 0]
@@ -97,7 +97,69 @@ def slidingwindowsearch(binary_warped,do_plot=True):
         plt.show()
     
     #print("left_fitx:",left_fitx, ", right_fitx:",right_fitx,", ploty:", ploty)
-    return left_fitx, right_fitx, ploty
+    return left_fit, right_fit, left_fitx, right_fitx, ploty
+
+def skipslidingwindowsearch(binary_warped, current_left_fit, current_right_fit,margin=100, do_plot=False):
+    """    source : https://discussions.udacity.com/t/skip-the-sliding-windows-how/243077/2    """
+    # non zero pixel indices of the new frame
+    nonzero = binary_warped.nonzero()
+    nonzeroy = np.array(nonzero[0])
+    nonzerox = np.array(nonzero[1])
+    margin = margin
+    
+    x_values_of_left_non_zero_pixels = current_left_fit[0]*(nonzeroy**2) + current_left_fit[1]*nonzeroy + current_left_fit[2]
+    x_values_of_right_non_zero_pixels = current_right_fit[0]*(nonzeroy**2) + current_right_fit[1]*nonzeroy + current_right_fit[2]
+    #lower & upper limit for x values
+    left_lower_x_limit = x_values_of_left_non_zero_pixels - margin
+    left_upper_x_limit = x_values_of_left_non_zero_pixels + margin
+    #Find indices of desired pixels
+    left_lane_inds = ((nonzerox > left_lower_x_limit) & (nonzerox < left_upper_x_limit))
+    #lower & upper limit for x values
+    right_lower_x_limit = x_values_of_right_non_zero_pixels - margin
+    right_upper_x_limit = x_values_of_right_non_zero_pixels + margin
+    #Find indices of desired pixels
+    right_lane_inds = ((nonzerox > right_lower_x_limit) & (nonzerox < right_upper_x_limit))
+    
+    # Again, extract left and right line pixel positions
+    leftx = nonzerox[left_lane_inds]
+    lefty = nonzeroy[left_lane_inds] 
+    rightx = nonzerox[right_lane_inds]
+    righty = nonzeroy[right_lane_inds]
+
+    #Fit a second order polynomial for these pixel locations
+    left_fit = np.polyfit(lefty, leftx, 2)
+    right_fit = np.polyfit(righty, rightx, 2)
+    
+    #Generate x & y values
+    ploty = np.linspace(0, binary_warped.shape[0]-1, binary_warped.shape[0] )
+    left_fitx = left_fit[0]*ploty**2 + left_fit[1]*ploty + left_fit[2]
+    right_fitx = right_fit[0]*ploty**2 + right_fit[1]*ploty + right_fit[2]
+    
+    if do_plot:
+        out_img = np.dstack((binary_warped, binary_warped, binary_warped))*255
+        window_img = np.zeros_like(out_img)
+        
+        out_img[nonzeroy[left_lane_inds], nonzerox[left_lane_inds]] = [255, 0, 0]
+        out_img[nonzeroy[right_lane_inds], nonzerox[right_lane_inds]] = [0, 0, 255]
+        #where search were done
+        left_line_window1 = np.array([np.transpose(np.vstack([left_fitx-margin, ploty]))])
+        left_line_window2 = np.array([np.flipud(np.transpose(np.vstack([left_fitx+margin, ploty])))])
+        left_line_pts = np.hstack((left_line_window1, left_line_window2))
+        right_line_window1 = np.array([np.transpose(np.vstack([right_fitx-margin, ploty]))])
+        right_line_window2 = np.array([np.flipud(np.transpose(np.vstack([right_fitx+margin, ploty])))])
+        right_line_pts = np.hstack((right_line_window1, right_line_window2))
+        # Draw the lane onto the warped blank image
+        cv2.fillPoly(window_img, np.int_([left_line_pts]), (0,255, 0))
+        cv2.fillPoly(window_img, np.int_([right_line_pts]), (0,255, 0))
+        result = cv2.addWeighted(out_img, 1, window_img, 0.3, 0)
+        plt.imshow(result)
+        plt.plot(left_fitx, ploty, color='yellow')
+        plt.plot(right_fitx, ploty, color='yellow')
+        plt.xlim(0, 1280)
+        plt.ylim(720, 0)
+        plt.show()
+    
+    return left_fit, right_fit, left_fitx, right_fitx, ploty
 
 #test
 """

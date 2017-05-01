@@ -26,8 +26,11 @@ def find_curvature(leftx,rightx,ploty):
     # Example values: 1926.74 1908.48
 #427.408260443 898.015919613 1280
 def position_to_center(leftx, rightx, img_width):
+    #image center
     center = img_width*.5
+    #lane midpoint
     lane_mid_point = leftx + ((rightx - leftx)*.5)
+    #image to center to midpoint
     result = (center - lane_mid_point)
     #convert to meters
     result = result * (3.7/700)# meters per pixel in x dimension
