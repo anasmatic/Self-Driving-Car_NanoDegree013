@@ -13,6 +13,7 @@
 /term1/CarND-Project2_Traffic-Sign-Classifier/testphotos/org
 /term1/project3/windows_sim
 /term1/project3/data
+/term1/project3/trials
 /term1/project3/mydata
 /term1/project3/_simulater'n'data
 /term1/project3/.ipynb_checkpoints
@@ -40,6 +41,6 @@ term1/CarND-Project4_Advanced-Lane-Lines/__pycache__/curvatureandcenter.cpython-
 term1/CarND-Project4_Advanced-Lane-Lines/__pycache__/slidingwindow.cpython-35.pyc
 term1/CarND-Project4_Advanced-Lane-Lines/__pycache__/lanesearch.cpython-35.pyc
 term1/CarND-Project4_Advanced-Lane-Lines/__pycache__/slidingwindow.cpython-35.pyc
-term1/CarND-Project4_Advanced-Lane-Lines/forumquestion/
-term1/CarND-Project2_Traffic-Sign-Classifier/trails/
-term1/CarND-Project2_Traffic-Sign-Classifier/data/
+term1/CarND-Project4_Advanced-Lane-Lines/forumquestion
+term1/CarND-Project2_Traffic-Sign-Classifier/trails
+term1/CarND-Project2_Traffic-Sign-Classifier/data
