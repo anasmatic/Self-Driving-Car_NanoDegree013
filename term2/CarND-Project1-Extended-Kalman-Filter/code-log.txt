@@ -1,0 +1,12 @@
+20170930 :
+need to prepare init function to recive the first measurements
+- created function in tools.cpp to help covert polar to cartesian coordinates
+- use this fucntion in FusionEKF.ProcessMeasurement in the Initialization section, if received data is from Radar.
+- set that as x
+- init P "Covariance Matrix" , with initial values
+- then out side the ( if Initialized ) section, set delta time,
+- also update F matrix with delta time
+- implement update and predict function in KalmanFilter class
+- back to FusionEKF class, use the KalmanFilter.update if Laser
+- // TODO : use Jacobian and KalmanFilter.UpdateEKF if RADAR
+20171001 :

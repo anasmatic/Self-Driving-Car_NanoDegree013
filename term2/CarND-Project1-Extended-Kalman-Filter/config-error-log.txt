@@ -1,0 +1,6 @@
+- had error LINK1104 while building missing file "zlibd.lib"
+[fixed] by renaming this line 39 in CMakeLists.txt
+from :
+target_link_libraries(ExtendedKF debug zlibd )
+to :
+target_link_libraries(ExtendedKF debug zlib )
