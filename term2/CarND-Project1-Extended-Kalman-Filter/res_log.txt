@@ -1,0 +1,30 @@
+build cmds
+1: cmake .. -G "Unix Makefiles" && make
+2: ./ExtendedKF
+
+RMSE - with just predect + update with jacobian + EKF
+x:16.2117
+y:15.6720
+VX:14.6651
+VY:13.2601
+When using vx,vy = 0 in converting polar
+x:16.1997
+y:15.6779
+VX:14.6775
+VY:13.2649
+After change to atan2 in UpdateEKF
+x:18.7251
+y:27.6963
+VX:15.7219
+VY:14.3716
+After change to atan in UpdateEKF
+x:20.7251
+y:12.6963
+VX:16.7219
+VY:17.3716
+
+reorder params of atan2 in UpdateEKF
+x:0.2304
+y:0.3467
+VX:.5840
+VY:.8048 and crash before end

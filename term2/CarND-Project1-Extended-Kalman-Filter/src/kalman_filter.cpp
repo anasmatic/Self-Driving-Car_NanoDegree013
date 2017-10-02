@@ -1,4 +1,6 @@
 #include "kalman_filter.h"
+#include <iostream>
+using namespace std;
 
 using Eigen::MatrixXd;
 using Eigen::VectorXd;
@@ -19,7 +21,7 @@ void KalmanFilter::Init(VectorXd &x_in, MatrixXd &P_in, MatrixXd &F_in,
 
 void KalmanFilter::Predict() {
   /**
-  TODO:
+  TODO:DONE
     * predict the state
   */
 	x_ = F_ * x_;
@@ -29,7 +31,7 @@ void KalmanFilter::Predict() {
 
 void KalmanFilter::Update(const VectorXd &z) {
   /**
-  TODO:
+  TODO:DONE
     * update the state by using Kalman Filter equations
   */
 	VectorXd z_pred = H_ * x_;
@@ -49,7 +51,7 @@ void KalmanFilter::Update(const VectorXd &z) {
 
 void KalmanFilter::UpdateEKF(const VectorXd &z) {
   /**
-  TODO:
+  TODO:DONE
     * update the state by using Extended Kalman Filter equations
   */
 	//preparation values
@@ -57,13 +59,19 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
 	px = x_(0); py = x_(1); vx = x_(2); vy = x_(3);
 	//h(x') = (rho, phi, rho dot)
 	float ro = sqrt((px*px)+(py*py));//rho,range predection  = sqrt(px^2 + py^2)
-	float phi = atan((py/px));//phi,bearing predection = arctan(py/px) 
-	phi = atan2(phi*-1, phi);
+	//float phi = atan((py/px));//phi,bearing predection = arctan(py/px) 
+	float phi = atan2(py, px);
+	if (ro == 0)
+		cout << "ERROR: Divide by 0 @ UpdateEKF";
 	float ro_dot = ((px*vx)+(py*vy))/ro;//rho,radial velocity predection = (pxvx+pyvy)/sqrt(px^2 + py^2)
 	
 	VectorXd z_pred = VectorXd(3);//h(x');
 	z_pred << ro, phi, ro_dot;
 	VectorXd y = z - z_pred;//z - h(x')
+	//normlize phi 
+	//cout << "y was:" << y(1) << endl;
+	y(1) = atan2(sin(y(1)), cos(y(1)));
+	//cout << "  now:" << y(1) << endl;
 //TODO, refactor from here, and also Update() function , extract code to unified function as it the same code.
 	MatrixXd Ht = H_.transpose();
 	MatrixXd S = H_ * P_ * Ht + R_;
