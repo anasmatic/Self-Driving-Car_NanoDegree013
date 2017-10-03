@@ -26,7 +26,7 @@ void KalmanFilter::Predict() {
   */
 	x_ = F_ * x_;
 	MatrixXd Ft = F_.transpose();
-	P_ = F_ * P_ * Ft + Q_;
+	P_ = (F_ * P_ * Ft) + Q_;
 }
 
 void KalmanFilter::Update(const VectorXd &z) {
@@ -69,9 +69,8 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
 	z_pred << ro, phi, ro_dot;
 	VectorXd y = z - z_pred;//z - h(x')
 	//normlize phi 
-	//cout << "y was:" << y(1) << endl;
 	y(1) = atan2(sin(y(1)), cos(y(1)));
-	//cout << "  now:" << y(1) << endl;
+
 //TODO, refactor from here, and also Update() function , extract code to unified function as it the same code.
 	MatrixXd Ht = H_.transpose();
 	MatrixXd S = H_ * P_ * Ht + R_;

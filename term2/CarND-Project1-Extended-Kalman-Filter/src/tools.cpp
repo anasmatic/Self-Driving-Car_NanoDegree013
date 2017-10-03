@@ -42,7 +42,6 @@ VectorXd Tools::CalculateRMSE(const vector<VectorXd> &estimations,
 
 	//calculate the squared root
 	rmse = rmse.array().sqrt();
-
 	//return the result
 	return rmse;
 }
@@ -58,7 +57,6 @@ MatrixXd Tools::CalculateJacobian(const VectorXd& x_state) {
 	float py = x_state(1);
 	float vx = x_state(2);
 	float vy = x_state(3);
-
 	//pre-compute a set of terms to avoid repeated calculation
 	float c1 = px*px + py*py;
 	//check division by zero
@@ -66,6 +64,7 @@ MatrixXd Tools::CalculateJacobian(const VectorXd& x_state) {
 		cout << "CalculateJacobian () - Error - Division by Zero" << endl;
 		c1=0.0001;
 	}
+	
 	float c2 = sqrt(c1);
 	float c3 = (c1*c2);
 
@@ -73,7 +72,7 @@ MatrixXd Tools::CalculateJacobian(const VectorXd& x_state) {
 	Hj << (px / c2), (py / c2), 0, 0,
 		-(py / c1), (px / c1), 0, 0,
 		py*(vx*py - vy*px) / c3, px*(px*vy - py*vx) / c3, px / c2, py / c2;
-
+	
 	return Hj;
 }
 
@@ -83,13 +82,11 @@ MatrixXd Tools::CalculateJacobian(const VectorXd& x_state) {
 VectorXd Tools::ConvertPolarToCartesian(VectorXd x_measurements) {
 	float ro = x_measurements[0];//rho , range
 	float theta = x_measurements[1];//phi , bearing
-	float ro_dot = x_measurements[2];//rho , radial velocity
-	VectorXd converted_raw_measurements_ = VectorXd(2);
+	
 	float px = ro * cos(theta);
 	float py = ro * sin(theta);
-	float vx = ro_dot * cos(theta);
-	float vy = ro_dot * sin(theta);
-	//converted_raw_measurements_ << px, py, vx, vy;
+	
+	VectorXd converted_raw_measurements_ = VectorXd(2);
 	converted_raw_measurements_ << px, py, 0, 0;
 	return converted_raw_measurements_;
 }
